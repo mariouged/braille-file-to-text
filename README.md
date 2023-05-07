@@ -1,6 +1,8 @@
-# braille tools
+# Braille files to plain text
 
-https://comoelagua.local/braille-file-to-text/index.html
+A simple way to convert your braille files to text.
+
+https://comoelagua.org/braille-file-to-text/
 
 ##
 
@@ -8,3 +10,4 @@ PROD Path
 ```
 vite build --base=/braille-file-to-text/
 ```
+
