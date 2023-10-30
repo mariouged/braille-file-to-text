@@ -12,6 +12,7 @@ const spanish = {
   'you have to select files': 'Tienes que seleccionar archivos',
   'No zip file generated.': 'No se ha generado el archivo zip',
   'Your files converted to text are in file zip downloaded.': 'Tus archivos convertidos a texto están en el archivo zip',
+  'Select braille files': 'Selecciona archivos braille',
   'Choose braille files to convert': 'Selecciona los archivos braille a convertir',
   'Convert': 'Convertir',
   'Download': 'Descargar',

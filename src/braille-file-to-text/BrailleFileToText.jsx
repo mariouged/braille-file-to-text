@@ -67,62 +67,66 @@ export default function BrailleFileToText() {
   }
 
   return (
-    <section className="section">
+    <div className="container is-widescreen">
+      <section className="section">
 
-      <TitleSection/>
+        <TitleSection/>
 
-      <form className="box" action="#">
+        <form className="box" action="#">
 
-        <div className="field">
-          <label className="label">{ lang('Choose braille files to convert') }</label>
-          <div className="file">
-            <label className="file-label">
-              <input onChange={(e) => onChangeBrailleFiles(e.target.files)} className="file-input" type="file" name="brailleFiles" multiple />
-              <span className="file-cta">
-                <span className="file-label">
-                  { lang('Choose braille files to convert') }
+          <div className="field">
+            <label className="label" htmlFor="brailleFiles">{ lang('Select braille files') }</label>
+            <div className="file">
+              <label className="file-label">
+                <input onChange={(e) => onChangeBrailleFiles(e.target.files)} className="input is-link" type="file" name="brailleFiles" multiple />
+                {/*
+                <span className="file-cta">
+                  <span className="file-label">
+                    { lang('Choose braille files to convert') }
+                  </span>
                 </span>
-              </span>
-            </label>
+                */}
+              </label>
+            </div>
           </div>
-        </div>
 
-        <FilesBraList brailleFiles={brailleFiles}/>
+          <FilesBraList brailleFiles={brailleFiles}/>
 
-        <div className="field is-grouped">
-          <div className="control">
-            <button onClick={e => onConvert(e)} className="button" type="button">{ lang('Convert') }</button>
+          <div className="field is-grouped">
+            <div className="control">
+              <button onClick={e => onConvert(e)} className="button is-link is-outlined" type="button">{ lang('Convert') }</button>
+            </div>
           </div>
-        </div>
-        {convertNotification !== null && (
-          <div className="notification is-danger">
-            {convertNotification}
+          {convertNotification !== null && (
+            <div className="notification is-danger">
+              {convertNotification}
+            </div>
+          )}
+
+          <FilesConvertedList txtFiles={txtFiles}/>
+
+          <div className="field is-grouped">
+            <div className="control">
+              <button onClick={e => onDownload(e)} className="button is-link is-outlined" type="button">{ lang('Download') }</button>
+            </div>
           </div>
-        )}
+          {downloadNotification !== null && (
+            <div className="notification is-danger">
+              {downloadNotification}
+            </div>
+          )}
+          {downloadSuccess !== null && (
+            <div className="notification is-success">
+              {downloadSuccess}
+            </div>
+          )}
+        </form>
 
-        <FilesConvertedList txtFiles={txtFiles}/>
+        <Help/>
 
-        <div className="field is-grouped">
-          <div className="control">
-            <button onClick={e => onDownload(e)} className="button" type="button">{ lang('Download') }</button>
-          </div>
-        </div>
-        {downloadNotification !== null && (
-          <div className="notification is-danger">
-            {downloadNotification}
-          </div>
-        )}
-        {downloadSuccess !== null && (
-          <div className="notification is-success">
-            {downloadSuccess}
-          </div>
-        )}
-      </form>
+        <Footer/>
 
-      <Help/>
-
-      <Footer/>
-
-    </section>
+      </section>
+    </div>
   )
 }
